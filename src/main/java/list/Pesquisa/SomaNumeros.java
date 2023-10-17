@@ -16,44 +16,40 @@ public class SomaNumeros {
 
     public int calcularSoma(){
         int soma = 0;
-        for(int valor : numeros){
-            soma+=valor;
+        for(Integer numero : numeros){
+            soma+=numero;
         }
         return soma;
     }
+
     public int encontrarMaiorNumero(){
         int maiorNumero = Integer.MIN_VALUE;
-        if (!numeros.isEmpty()){
-            for(int numero : numeros){
-                if(numero>maiorNumero){
-                    maiorNumero = numero;
-                }
+
+        for(Integer numero : numeros){
+            if(maiorNumero<numero){
+                maiorNumero = numero;
             }
-            return maiorNumero;
-        }else{
-            throw new RuntimeException("Lista vazia!");
         }
+        return maiorNumero;
     }
 
     public int encontrarMenorNumero(){
         int menorNumero = Integer.MAX_VALUE;
-        if (!numeros.isEmpty()){
-            for(int numero : numeros){
-                if(numero<menorNumero){
-                    menorNumero = numero;
-                }
+
+        for(Integer numero : numeros){
+            if(menorNumero>numero){
+                menorNumero = numero;
             }
-            return menorNumero;
-        }else{
-            throw new RuntimeException("Lista vazia!");
         }
+        return menorNumero;
     }
 
-    public List<Integer> exibirNumeros(){
-        if(!numeros.isEmpty()){
-            return numeros;
-        }else{
-            throw new RuntimeException("Lista vazia!");
+    public void exibirNumeros(){
+        if (!numeros.isEmpty()){
+            System.out.println(this.numeros);
+        }
+        else {
+            System.out.println("A lista está vazia!");
         }
     }
 
@@ -70,8 +66,7 @@ public class SomaNumeros {
 
         // Exibindo a lista de números adicionados
         System.out.println("Números adicionados:");
-        System.out.println(somaNumeros.exibirNumeros());
-
+        somaNumeros.exibirNumeros();
 
         // Calculando e exibindo a soma dos números na lista
         System.out.println("Soma dos números = " + somaNumeros.calcularSoma());
@@ -82,6 +77,5 @@ public class SomaNumeros {
         // Encontrando e exibindo o menor número na lista
         System.out.println("Menor número = " + somaNumeros.encontrarMenorNumero());
     }
-
 
 }

@@ -6,43 +6,47 @@ import java.util.List;
 
 public class OrdenacaoNumeros {
 
-    List<Integer> numerosList;
+    private List<Integer> numeros;
 
     public OrdenacaoNumeros() {
-        this.numerosList = new ArrayList<>();
+        this.numeros = new ArrayList<>();
     }
 
     public void adicionarNumero(int numero){
-        this.numerosList.add(numero);
+        this.numeros.add(numero);
     }
 
     public List<Integer> ordenarAscendente(){
-        List<Integer> numerosAscendente = new ArrayList<>(this.numerosList);
-        if(!numerosAscendente.isEmpty()){
-            Collections.sort(numerosAscendente);
-            return numerosAscendente;
-        } else {
-            throw new RuntimeException("Lista vazia!");
+
+        List<Integer> integerListAscendente = new ArrayList<>(this.numeros);
+
+        if(!integerListAscendente.isEmpty()){
+            Collections.sort(integerListAscendente);
+            return integerListAscendente;
+        }
+        else{
+            throw new RuntimeException("A lista está vazia.");
         }
     }
+
     public List<Integer> ordenarDescendente(){
-        List<Integer> numerosDescendente = new ArrayList<>(this.numerosList);
-        if(!numerosDescendente.isEmpty()){
-            numerosDescendente.sort(Collections.reverseOrder());
-            return numerosDescendente;
-        } else {
-            throw new RuntimeException("Lista vazia!");
+        List<Integer> integerListDescendente = new ArrayList<>(this.numeros);
+        if(!integerListDescendente.isEmpty()){
+            integerListDescendente.sort(Collections.reverseOrder());
+            return integerListDescendente;
+        }
+        else{
+            throw new RuntimeException("A lista está vazia.");
         }
     }
 
-    public void exibirNumeros() {
-        if (!numerosList.isEmpty()) {
-            System.out.println(this.numerosList);
+    public void exibirNumeros(){
+        if (!numeros.isEmpty()) {
+            System.out.println(this.numeros);
         } else {
-            System.out.println("Lista vazia!");
+            System.out.println("A lista está vazia!");
         }
     }
-
     public static void main(String[] args) {
         // Criando uma instância da classe OrdenacaoNumeros
         OrdenacaoNumeros numeros = new OrdenacaoNumeros();
@@ -69,4 +73,5 @@ public class OrdenacaoNumeros {
         // Exibindo a lista
         numeros.exibirNumeros();
     }
+
 }
